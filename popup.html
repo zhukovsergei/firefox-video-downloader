@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Video Downloader</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    .tabs {
+      display: flex;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+    }
+    .tab {
+      padding: 8px 15px;
+      cursor: pointer;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      margin-right: 5px;
+    }
+    .tab.active {
+      background: #0060df;
+      color: white;
+      border-color: #0060df;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    button {
+      background-color: #0060df;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    button:hover {
+      background-color: #003eaa;
+    }
+    #images-container, #videos-container {
+      max-height: 400px;
+      overflow-y: auto;
+      margin-top: 15px;
+    }
+    .item {
+      display: flex;
+      padding: 5px;
+      margin-bottom: 8px;
+      border: 1px solid #eee;
+      align-items: center;
+    }
+    .thumbnail {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+    .info {
+      flex-grow: 1;
+      font-size: 12px;
+    }
+    .download-btn {
+      background-color: #00c853;
+      margin: 0;
+      width: auto;
+      font-size: 11px;
+      padding: 4px 8px;
+    }
+    #download-all-images, #download-all-videos {
+      background-color: #00c853;
+    }
+    .status {
+      color: #666;
+      font-size: 12px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .video-thumbnail {
+      width: 80px;
+      height: 45px;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+    .video-thumbnail::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 17px;
+      border-color: transparent transparent transparent #fff;
+    }
+    .format-badge {
+      background-color: #0060df;
+      color: white;
+      font-size: 10px;
+      padding: 2px 5px;
+      border-radius: 3px;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Load mediafiles</h2>
+  
+  <div class="tabs">
+    <div class="tab active" id="tab-videos">Video</div>
+    <div class="tab" id="tab-images">IMG</div>
+  </div>
+
+  <div class="tab-content active" id="content-videos">
+    <button id="scan-videos">Scan videos</button>
+    <button id="download-all-videos">Download all</button>
+    <div id="videos-status" class="status">Push scan for start</div>
+    <div id="videos-container"></div>
+  </div>
+
+  <div class="tab-content" id="content-images">
+    <button id="scan-images">Scan imgs</button>
+    <button id="download-all-images">Download all</button>
+    <div id="images-status" class="status">Push scan for start</div>
+    <div id="images-container"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 

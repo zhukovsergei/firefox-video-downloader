@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Media Downloader",
+  "version": "1.0",
+  "description": "Analyzes the page and allows you to download protected videos",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
